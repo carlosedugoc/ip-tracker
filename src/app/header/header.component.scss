@@ -100,15 +100,41 @@ body {
   }
   .header__params {
     width: 50%;
-    height: 50vh;
+    height: 26vh;
     border-radius: 10px;
     margin-top: -80px;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(1fr, 4);
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(1fr, 2);
     .content {
       padding: 0;
       text-align: center;
+    }
+    .content1 {
+      grid-column: 1;
+      grid-row: 1;
+    }
+    .content2 {
+      grid-column: 2;
+      grid-row: 1;
+    }
+    .content3 {
+      grid-column: 1;
+      grid-row: 2;
+    }
+    .content4 {
+      grid-column: 2;
+      grid-row: 2;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .header__params {
+    height: 50vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(1fr, 4);
+    .content {
       grid-column: 1;
     }
     .content1 {
