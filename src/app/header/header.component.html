@@ -1,0 +1,42 @@
+<header>
+    <div class="header">
+        <h2 class="header__title">Ip Address Tracker</h2>
+        <form [formGroup]="form" (ngSubmit)="submitForm()" >
+            <div class="header__search">
+                <input #search name="search" pattern="^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"  [formControlName]="'search'" type="search" class="search" name="txtSearch" placeholder="Search for any IP address or domain" ><button type="submit" ><img src="../../assets/images/icon-arrow.svg" alt=""></button>
+                <div *ngIf="form.get('search').touched && !form.get('search').pristine && form.get('search').hasError('required')" >
+                    search is a required field
+                </div>
+                <div *ngIf="form.get('search').touched && !form.get('search').pristine && form.get('search').hasError('pattern')"  >
+                    text must be an IP address
+                </div>
+            </div>
+        </form>
+
+        <div class="header__image">
+            <img  src="../../assets/images/pattern-bg.png" alt="background">
+        </div>
+        <div class="header__params">
+            <div class="content">
+                <h6>IP ADDRESS</h6>
+                <h2>{{location?.ip}}</h2>
+            </div>
+
+            <div class="content">
+                <h6>LOCATION</h6>
+                <h2>{{location?.location?.city}}, {{location?.location?.country}} {{location?.location?.postalCode}}</h2>
+            </div>
+
+            <div class="content">
+                <h6>TIMEZONE</h6>
+                <h2>{{location?.location?.timezone}}</h2>
+            </div>
+
+            <div class="content">
+                <h6>ISP</h6>
+                <h2>{{location?.isp}}</h2>
+            </div>
+
+        </div>
+    </div>
+</header>
