@@ -8,7 +8,7 @@ export class MapService {
   constructor(private http: HttpClient) {}
 
   public getCurrentIp() {
-    return this.http.get('http://api.ipify.org/?format=json');
+    return this.http.get('https://jsonip.com/');
   }
 
   public searchIp(ip: string) {
