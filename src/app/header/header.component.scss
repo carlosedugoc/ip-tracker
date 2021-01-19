@@ -23,13 +23,15 @@ body {
     width: 40%;
     height: 40px;
     border-radius: 10px;
-    top: 130px;
+    top: 110px;
     left: 0;
     right: 0;
     margin: auto;
     .search {
       border-radius: 10px 0px 0px 10px;
       width: 70%;
+      font-size: 18px;
+      border-color: black;
     }
     button {
       background-color: black;
@@ -37,6 +39,7 @@ body {
       height: 100%;
       border-radius: 0px 10px 10px 0px;
       width: 35px;
+      border-color: black;
       cursor: pointer;
     }
     div {
@@ -58,7 +61,7 @@ body {
     display: grid;
     grid-template-columns: repeat(1fr, 4);
     grid-auto-flow: column;
-    top: 200px;
+    top: 170px;
     left: 0;
     right: 0;
     margin: auto;
@@ -88,7 +91,7 @@ body {
 @media (max-width: 990px) {
   .header__title {
     top: 40px;
-    left: -90px;
+    left: -80px;
     right: 0;
     margin: auto;
   }
@@ -99,10 +102,10 @@ body {
     }
   }
   .header__params {
-    width: 50%;
-    height: 26vh;
+    width: 60%;
+    height: 33vh;
     border-radius: 10px;
-    margin-top: -80px;
+    top: 120px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(1fr, 2);
@@ -130,8 +133,12 @@ body {
 }
 
 @media (max-width: 600px) {
+  .header__title {
+    left: -20px;
+  }
   .header__params {
-    height: 50vh;
+    height: 65vh;
+    width: 70%;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(1fr, 4);
     .content {
@@ -149,5 +156,11 @@ body {
     .content4 {
       grid-row: 4;
     }
+  }
+}
+
+@media (max-width: 375px) {
+  .header__params {
+    width: 80%;
   }
 }
