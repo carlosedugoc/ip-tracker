@@ -4,12 +4,13 @@
         <form [formGroup]="form" (ngSubmit)="submitForm()" >
             <div class="header__search">
                 <input #search name="search" pattern="^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"  [formControlName]="'search'" type="search" class="search" name="txtSearch" placeholder="Search for any IP address or domain" ><button type="submit" ></button>
-                <div *ngIf="form.get('search').touched && !form.get('search').pristine && form.get('search').hasError('required')" >
-                    Search is a required field
-                </div>
-                <div *ngIf="form.get('search').touched && !form.get('search').pristine && form.get('search').hasError('pattern')"  >
-                    Text must be an valid IP address
-                </div>
+
+            </div>
+            <div class="header__error" *ngIf="form.get('search').touched && !form.get('search').pristine && form.get('search').hasError('required')" >
+                Search is a required field
+            </div>
+            <div class="header__error" *ngIf="form.get('search').touched && !form.get('search').pristine && form.get('search').hasError('pattern')"  >
+                Text must be an valid IP address
             </div>
         </form>
 

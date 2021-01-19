@@ -25,6 +25,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
 
   constructor(private mapService: MapService) {}
 
+  /** Invoke service to get the location corresponding to the Ip Address got as param */
   ngOnChanges(changes: SimpleChanges): void {
     this.mapService
       .searchIp(changes.ipToSearch.currentValue)
@@ -40,11 +41,13 @@ export class MapComponent implements AfterViewInit, OnChanges {
       });
   }
 
+  /** SetUp the icons' map */
   smallIcon = new Icon({
     iconUrl: '../../assets/images/icon-location.svg',
     iconRetinaUrl: '../../assets/images/icon-location.svg',
   });
 
+  /** Invoke the service to get the clien IpAddress and then get the location for that Ip Address */
   ngAfterViewInit(): void {
     this.mapService
       .getCurrentIp()
@@ -60,6 +63,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
       });
   }
 
+  /** Helps to render the map inside the HTML */
   createMap(lat: number, lng: number) {
     const parcThabor = { lat, lng };
 
@@ -80,6 +84,7 @@ export class MapComponent implements AfterViewInit, OnChanges {
     this.addMarker(popupOptions);
   }
 
+  /** Add a marker to the map */
   addMarker({ coords }) {
     const marker = L.marker([coords.lat, coords.lng], { icon: this.smallIcon });
     marker.addTo(this.map);
