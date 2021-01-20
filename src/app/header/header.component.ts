@@ -27,7 +27,6 @@ export class HeaderComponent implements OnInit {
     this.search.markAsTouched();
     this.search.markAsDirty();
     if (this.form.valid) {
-      console.log(this.search);
       this.ipToSearch.emit(this.search.value);
     } else {
       console.log(this.form);
